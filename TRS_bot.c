@@ -28,10 +28,10 @@
 
 
 size_t __cdecl request_return_callback(char *data, size_t size, size_t nmemb, char *out) {
-	static size_t buffer_size = CURL_MAX_WRITE_SIZE ;
-	if (strlen(out) + strlen(data) >= buffer_size) {
+	static size_t buffer_size = CURL_MAX_WRITE_SIZE;
+	while (strlen(out) + strlen(data) >= buffer_size) {
 		realloc(out, buffer_size + CURL_MAX_WRITE_SIZE);
-		buffer_size += 64;
+		buffer_size += CURL_MAX_WRITE_SIZE;
 	}
 	strncat(out, data, nmemb);
 	return nmemb;
