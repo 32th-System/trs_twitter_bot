@@ -145,6 +145,7 @@ int main(void) {
 			snprintf(tweet_cmd_buf, tweet_cmd_buf_size, tweet_cmd, title);
 			puts("Running twurl. Twitter response:\n\n\n");
 			system(tweet_cmd_buf);
+			puts("\n\n\n\n\n");
 			stream_running++;
 		} else if(!title && stream_running) {
 			stream_running = 0;
