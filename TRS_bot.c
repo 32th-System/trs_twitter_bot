@@ -122,7 +122,7 @@ int main(void) {
 
 	while(!_kbhit()) {
 		SLEEP(30);
-		if(remove("trs_bot_quit.tmp") = 0) {
+		if(remove("trs_bot_quit.tmp") == 0) {
 			break;
 		}
 		curl_easy_perform(curl);
